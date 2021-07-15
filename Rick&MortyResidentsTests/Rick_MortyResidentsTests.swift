@@ -142,5 +142,43 @@ class Rick_MortyResidentsTests: XCTestCase, DataSourceDelegate {
             }
         }
     }
+    
+    func test5DataSourceCreateNote(){
+        let givenText = "Hello Rick and Morty"
+        let givenNote = Note(id: 1, userId: 2, body: "Hello Rick and Morty")
+        let givenExpectation = expectation(description: "test5DataSourceCreateNote expectation")
+        //when
+        DataSource.createNote(with: givenNote) { note  in
+            let text = note?.body
+            print("🟢 text: \(String(describing: text))")
+            //then
+            XCTAssertTrue(givenText == text)
+            givenExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func test6DataSourceRetrieveNote(){
+        let givenExpectation = expectation(description: "test6DataSourceRetrieveNote expectation")
+        //when
+        DataSource.retrieveNote(id: 1) { note  in
+            let text = note?.body
+            print("🟢 text: \(String(describing: text))")
+            //then
+            XCTAssertTrue(text != nil)
+            givenExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
 
 }

@@ -49,6 +49,13 @@
 		EBD59641269FC2FE00685998 /* ResidentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */; };
 		EBD59643269FC37500685998 /* ResidentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59642269FC37500685998 /* ResidentDetailsView.swift */; };
 		EBD59646269FCA0600685998 /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBD59645269FC9E100685998 /* get_schwifty.ttf */; };
+		EBD5964826A07F3600685998 /* DataSource+Typicode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964726A07F3600685998 /* DataSource+Typicode.swift */; };
+		EBD5964A26A080CF00685998 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964926A080CF00685998 /* Note.swift */; };
+		EBD5964C26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964B26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift */; };
+		EBD5964D26A0932300685998 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964926A080CF00685998 /* Note.swift */; };
+		EBD5964E26A0932800685998 /* DataSource+Typicode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964726A07F3600685998 /* DataSource+Typicode.swift */; };
+		EBD5964F26A093E300685998 /* Encodable+DictionaryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5964B26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift */; };
+		EBD5965126A0A13300685998 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5965026A0A13300685998 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +117,10 @@
 		EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsViewController.swift; sourceTree = "<group>"; };
 		EBD59642269FC37500685998 /* ResidentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsView.swift; sourceTree = "<group>"; };
 		EBD59645269FC9E100685998 /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
+		EBD5964726A07F3600685998 /* DataSource+Typicode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSource+Typicode.swift"; sourceTree = "<group>"; };
+		EBD5964926A080CF00685998 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		EBD5964B26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+DictionaryRepresentation.swift"; sourceTree = "<group>"; };
+		EBD5965026A0A13300685998 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +212,7 @@
 			children = (
 				EBD595FD269CDCF500685998 /* DataSource.swift */,
 				EBD59614269CFD5100685998 /* DataSource+Generics.swift */,
+				EBD5964726A07F3600685998 /* DataSource+Typicode.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -211,6 +223,7 @@
 				EBD59600269CE16F00685998 /* Result.swift */,
 				EBD59602269CE3E600685998 /* Location.swift */,
 				EBD59604269CE5DA00685998 /* Resident.swift */,
+				EBD5964926A080CF00685998 /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,9 +275,11 @@
 			isa = PBXGroup;
 			children = (
 				EBD59629269DF08600685998 /* UIColor+Palette.swift */,
+				EBD5964B26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift */,
 				EBD59624269DEF7100685998 /* CGFloat+FlowLayout.swift */,
 				EBD59623269DEF7100685998 /* Int+FlowLayout.swift */,
 				EBD59631269F6E8C00685998 /* UIImage+ImageCache.swift */,
+				EBD5965026A0A13300685998 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -420,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD59637269F6ECE00685998 /* ImageCacheTypeProtocol.swift in Sources */,
+				EBD5965126A0A13300685998 /* String+Extension.swift in Sources */,
 				EBD59628269DF00500685998 /* LocationsCollectionViewCell.swift in Sources */,
 				EBD5962A269DF08600685998 /* UIColor+Palette.swift in Sources */,
 				EBD5960B269CEAE800685998 /* ResidentViewModel.swift in Sources */,
@@ -435,9 +451,11 @@
 				EBD59605269CE5DA00685998 /* Resident.swift in Sources */,
 				EBD595FE269CDCF500685998 /* DataSource.swift in Sources */,
 				EBD5963B269F7FD300685998 /* ResidentsCollectionView.swift in Sources */,
+				EBD5964A26A080CF00685998 /* Note.swift in Sources */,
 				EBD5962C269F6AA900685998 /* ResidentsCollectionViewController.swift in Sources */,
 				EBD59619269D03D000685998 /* LocationsCollectionViewController.swift in Sources */,
 				EBD59630269F6DC700685998 /* ResidentCollectionViewCell.swift in Sources */,
+				EBD5964C26A08C1F00685998 /* Encodable+DictionaryRepresentation.swift in Sources */,
 				EBD59639269F6ECE00685998 /* ImageLoader.swift in Sources */,
 				EBD59643269FC37500685998 /* ResidentDetailsView.swift in Sources */,
 				EBD59615269CFD5100685998 /* DataSource+Generics.swift in Sources */,
@@ -448,6 +466,7 @@
 				EBD5961B269D05F300685998 /* LocationsCollectionViewModel.swift in Sources */,
 				EBD595CF269CDB8500685998 /* SceneDelegate.swift in Sources */,
 				EBD59609269CEAA100685998 /* LocationViewModel.swift in Sources */,
+				EBD5964826A07F3600685998 /* DataSource+Typicode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +479,12 @@
 				EBD59616269D011200685998 /* DataSource+Generics.swift in Sources */,
 				EBD595E4269CDB8700685998 /* Rick_MortyResidentsTests.swift in Sources */,
 				EBD59611269CF9A200685998 /* Location.swift in Sources */,
+				EBD5964D26A0932300685998 /* Note.swift in Sources */,
 				EBD59610269CF9A000685998 /* Result.swift in Sources */,
 				EBD5960E269CF99800685998 /* LocationViewModel.swift in Sources */,
 				EBD59612269CF9A500685998 /* Resident.swift in Sources */,
+				EBD5964E26A0932800685998 /* DataSource+Typicode.swift in Sources */,
+				EBD5964F26A093E300685998 /* Encodable+DictionaryRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

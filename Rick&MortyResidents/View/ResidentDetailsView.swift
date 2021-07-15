@@ -172,6 +172,14 @@ class ResidentDetailsView: UIView {
         bind(viewModel)
     }
     
+    public func setOhterInfoText(with text:String) {
+        self.otherInfo.text = text
+    }
+    
+    public func hideKeyboard() {
+        self.otherInfo.resignFirstResponder()
+    }
+    
     private func bind(_ viewModel: ResidentViewModel) {
         if let imgUrl = viewModel.imageURL {
             cancellable = ImageLoader.shared.loadImage(from: imgUrl)

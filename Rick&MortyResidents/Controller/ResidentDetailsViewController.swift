@@ -13,7 +13,7 @@ class ResidentDetailsViewController: UIViewController {
     private var viewModel:ResidentViewModel
     
     private let exitImage = UIImage(systemName: "xmark")
-    
+
     
     init(_ viewModel: ResidentViewModel) {
         self.viewModel = viewModel
@@ -32,6 +32,7 @@ class ResidentDetailsViewController: UIViewController {
     func setup(){
         setupView()
         setupButtons()
+        setupTextView()
     }
     
     func setupButtons() {
@@ -52,6 +53,20 @@ class ResidentDetailsViewController: UIViewController {
         self.view = view
     }
     
+    private func setupTextView(){
+        viewModel.loadNote { note in
+            DispatchQueue.main.async { [weak self] in
+                self?.detailView?.setOhterInfoText(with: note?.body ?? "No note")
+            }
+        }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.detailView?.hideKeyboard()
+    }
+    
     
     @objc private func closeAction(sender:UIBarButtonItem) {
         dismiss(animated: true) {
@@ -59,4 +74,14 @@ class ResidentDetailsViewController: UIViewController {
         }
     }
        
+}
+
+extension ResidentDetailsViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        viewModel.updateNote(with: textView.text) { note in
+            DispatchQueue.main.async { [weak self] in
+                self?.detailView?.setOhterInfoText(with: note.body)
+            }
+        }
+    }
 }

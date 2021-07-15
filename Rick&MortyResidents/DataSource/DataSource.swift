@@ -16,6 +16,7 @@ protocol DataSourceDelegate:AnyObject {
 class DataSource {
     
     private let urlString:String = "https://rickandmortyapi.com/api/location"
+    internal static let notesBaseURLString = "https://jsonplaceholder.typicode.com/posts"
     private let urlProcessingQueue = DispatchQueue(label: "urlProcessingQueue")
     private var _currentResult:Result?
     public var next:String {
