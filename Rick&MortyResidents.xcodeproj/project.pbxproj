@@ -48,6 +48,7 @@
 		EBD5963D269F806500685998 /* ResidentsCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5963C269F806500685998 /* ResidentsCollectionViewFlowLayout.swift */; };
 		EBD59641269FC2FE00685998 /* ResidentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */; };
 		EBD59643269FC37500685998 /* ResidentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59642269FC37500685998 /* ResidentDetailsView.swift */; };
+		EBD59646269FCA0600685998 /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBD59645269FC9E100685998 /* get_schwifty.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		EBD5963C269F806500685998 /* ResidentsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsViewController.swift; sourceTree = "<group>"; };
 		EBD59642269FC37500685998 /* ResidentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsView.swift; sourceTree = "<group>"; };
+		EBD59645269FC9E100685998 /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,11 +272,20 @@
 		EBD59633269F6EC000685998 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EBD59644269FC9B000685998 /* fonts */,
 				EBD59635269F6ECE00685998 /* ImageCache.swift */,
 				EBD59634269F6ECE00685998 /* ImageCacheTypeProtocol.swift */,
 				EBD59636269F6ECE00685998 /* ImageLoader.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBD59644269FC9B000685998 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EBD59645269FC9E100685998 /* get_schwifty.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD59646269FCA0600685998 /* get_schwifty.ttf in Resources */,
 				EBD595D9269CDB8700685998 /* LaunchScreen.storyboard in Resources */,
 				EBD595D6269CDB8700685998 /* Assets.xcassets in Resources */,
 				EBD5960D269CF0A900685998 /* README.md in Resources */,

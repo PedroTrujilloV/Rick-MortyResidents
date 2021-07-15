@@ -55,8 +55,13 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text  = "No name"
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+        label.font = UIFont(name: "GetSchwifty-Regular", size: 15)
         label.textColor = UIColor.nameTextColor
+        label.layer.shadowColor = UIColor.glowColor.cgColor
+        label.layer.shadowOffset = CGSize.zero
+        label.layer.shadowRadius = 3.0
+        label.layer.shadowOpacity = 1.0
+        label.layer.masksToBounds = false
         label.numberOfLines = 2
         return label
     }()
@@ -93,7 +98,6 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         setupImageViewConstraints()
         setupTextViewConstraints()
         setupIcons()
-        self.backgroundColor = .cellBackgroundColor
     }
        
     private func setupStackView(){
@@ -102,6 +106,9 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(thumbnailImageView)
         stackView.addArrangedSubview(textStackView)
         activityIndicator.startAnimating()
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
         
         stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

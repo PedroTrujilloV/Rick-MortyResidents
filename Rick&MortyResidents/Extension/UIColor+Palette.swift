@@ -29,4 +29,8 @@ extension UIColor {
         return UIColor(named: "cellBackgroundColor") ?? tertiarySystemBackground
     }
     
+    public static var glowColor: UIColor {
+        return UIColor(named: "glowColor") ?? systemYellow
+    }
+        
 }

@@ -28,8 +28,13 @@ class ResidentDetailsView: UIView {
         let label = UILabel()
         label.text  = "No Name"
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-DemiBold", size: 18)
+        label.font = UIFont(name: "GetSchwifty-Regular", size: 20)
         label.textColor = UIColor.nameTextColor
+        label.layer.shadowColor = UIColor.glowColor.cgColor
+        label.layer.shadowOffset = CGSize.zero
+        label.layer.shadowRadius = 3.0
+        label.layer.shadowOpacity = 1.0
+        label.layer.masksToBounds = false
         label.numberOfLines = 2
         return label
     }()

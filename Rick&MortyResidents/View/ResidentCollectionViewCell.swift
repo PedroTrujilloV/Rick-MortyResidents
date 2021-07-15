@@ -15,7 +15,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     private var cancellables: Array<AnyCancellable> = []
     private static let processingQueue = DispatchQueue(label: "processingQueue")
     private let heightProportion:CGFloat = 0.65
-    private let defaultImage = UIImage(named: "default")
+    private let defaultImage = UIImage(named: "logo")
     private let likeStateImageView = UIImageView(image: UIImage(systemName: "heart.fill") )
     private let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
@@ -32,7 +32,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     private let textStackView:UIStackView = {
         let stackView = UIStackView()
         stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = .fill
+        stackView.distribution  = .fillEqually
         stackView.alignment = UIStackView.Alignment.center
         stackView.spacing   = 3.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "default")
+        imageView.image = UIImage(named: "logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -55,8 +55,13 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text  = "No name"
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
+        label.font = UIFont(name: "GetSchwifty-Regular", size: 14)
         label.textColor = UIColor.nameTextColor
+        label.layer.shadowColor = UIColor.glowColor.cgColor
+        label.layer.shadowOffset = CGSize.zero
+        label.layer.shadowRadius = 3.0
+        label.layer.shadowOpacity = 1.0
+        label.layer.masksToBounds = false
         label.numberOfLines = 2
         return label
     }()
@@ -101,6 +106,10 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(thumbnailImageView)
         stackView.addArrangedSubview(textStackView)
         activityIndicator.startAnimating()
+        self.backgroundColor = .cellBackgroundColor
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
         
         stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -109,8 +118,9 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupImageViewConstraints(){
-        thumbnailImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.5).isActive = true
-        thumbnailImageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9).isActive = true
+
+        thumbnailImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6).isActive = true
+        thumbnailImageView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
     }
     
     private func setupTextViewConstraints(){
@@ -119,7 +129,6 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         
         nameLabel.widthAnchor.constraint(equalTo: textStackView.widthAnchor, multiplier: 0.9).isActive = true
         descriptionLabel.widthAnchor.constraint(equalTo: textStackView.widthAnchor, multiplier: 0.9).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalTo: textStackView.heightAnchor, multiplier: 0.6).isActive = true
     }
     
     private func setupIcons(){
@@ -150,8 +159,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
                             }, receiveCompletion: { [weak self] (completion) in
                                 DispatchQueue.main.async {
                                     self?.activityIndicator.stopAnimating()
-                                    let margin:CGFloat = 10
-                                    self?.thumbnailImageView.image = self?.thumbnailImageView.image?.withInset(UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+                                    self?.thumbnailImageView.contentMode = .scaleAspectFill
                                 }
                             }, receiveCancel: { [weak self]  in
                                 DispatchQueue.main.async {
@@ -165,6 +173,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        self.thumbnailImageView.contentMode = .scaleAspectFit
         thumbnailImageView.image = defaultImage
         self.likeStateImageView.isHidden = true
         self.descriptionLabel.text = ""

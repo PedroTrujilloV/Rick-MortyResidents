@@ -9,7 +9,9 @@ import Foundation
 
 class ResidentsCollectionViewModel: NSObject { //TODO: Add Rrsidents Collection view delgetae to this
     
-    public var title = "Residents List"
+    public var title:String {
+        return "Residents at " + locationViewModel.name
+    }
     private var locationViewModel:LocationViewModel
     public var dataSourceList:Array<ResidentViewModel> = []
     public weak var delegate: ResidentsCollectionViewControllerDelegate?
