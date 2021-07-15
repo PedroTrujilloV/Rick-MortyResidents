@@ -8,6 +8,7 @@
 import Foundation
 
 class LocationViewModel: NSObject {
+
     var model: Location
     
     var id:Int {

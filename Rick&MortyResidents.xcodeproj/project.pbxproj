@@ -37,6 +37,17 @@
 		EBD59626269DEF7100685998 /* CGFloat+FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59624269DEF7100685998 /* CGFloat+FlowLayout.swift */; };
 		EBD59628269DF00500685998 /* LocationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59627269DF00500685998 /* LocationsCollectionViewCell.swift */; };
 		EBD5962A269DF08600685998 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59629269DF08600685998 /* UIColor+Palette.swift */; };
+		EBD5962C269F6AA900685998 /* ResidentsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5962B269F6AA800685998 /* ResidentsCollectionViewController.swift */; };
+		EBD5962E269F6B6F00685998 /* ResidentsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5962D269F6B6F00685998 /* ResidentsCollectionViewModel.swift */; };
+		EBD59630269F6DC700685998 /* ResidentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5962F269F6DC700685998 /* ResidentCollectionViewCell.swift */; };
+		EBD59632269F6E8C00685998 /* UIImage+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59631269F6E8C00685998 /* UIImage+ImageCache.swift */; };
+		EBD59637269F6ECE00685998 /* ImageCacheTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59634269F6ECE00685998 /* ImageCacheTypeProtocol.swift */; };
+		EBD59638269F6ECE00685998 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59635269F6ECE00685998 /* ImageCache.swift */; };
+		EBD59639269F6ECE00685998 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59636269F6ECE00685998 /* ImageLoader.swift */; };
+		EBD5963B269F7FD300685998 /* ResidentsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5963A269F7FD300685998 /* ResidentsCollectionView.swift */; };
+		EBD5963D269F806500685998 /* ResidentsCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD5963C269F806500685998 /* ResidentsCollectionViewFlowLayout.swift */; };
+		EBD59641269FC2FE00685998 /* ResidentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */; };
+		EBD59643269FC37500685998 /* ResidentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD59642269FC37500685998 /* ResidentDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +97,17 @@
 		EBD59624269DEF7100685998 /* CGFloat+FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+FlowLayout.swift"; sourceTree = "<group>"; };
 		EBD59627269DF00500685998 /* LocationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EBD59629269DF08600685998 /* UIColor+Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
+		EBD5962B269F6AA800685998 /* ResidentsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsCollectionViewController.swift; sourceTree = "<group>"; };
+		EBD5962D269F6B6F00685998 /* ResidentsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsCollectionViewModel.swift; sourceTree = "<group>"; };
+		EBD5962F269F6DC700685998 /* ResidentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentCollectionViewCell.swift; sourceTree = "<group>"; };
+		EBD59631269F6E8C00685998 /* UIImage+ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageCache.swift"; sourceTree = "<group>"; };
+		EBD59634269F6ECE00685998 /* ImageCacheTypeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheTypeProtocol.swift; sourceTree = "<group>"; };
+		EBD59635269F6ECE00685998 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		EBD59636269F6ECE00685998 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		EBD5963A269F7FD300685998 /* ResidentsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsCollectionView.swift; sourceTree = "<group>"; };
+		EBD5963C269F806500685998 /* ResidentsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsViewController.swift; sourceTree = "<group>"; };
+		EBD59642269FC37500685998 /* ResidentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +159,7 @@
 		EBD595CB269CDB8500685998 /* Rick&MortyResidents */ = {
 			isa = PBXGroup;
 			children = (
+				EBD59633269F6EC000685998 /* Resources */,
 				EBD59622269DEEC100685998 /* Extension */,
 				EBD5961C269D071600685998 /* View */,
 				EBD59617269D037400685998 /* Controller */,
@@ -196,6 +219,7 @@
 				EBD59608269CEAA100685998 /* LocationViewModel.swift */,
 				EBD5960A269CEAE800685998 /* ResidentViewModel.swift */,
 				EBD5961A269D05F300685998 /* LocationsCollectionViewModel.swift */,
+				EBD5962D269F6B6F00685998 /* ResidentsCollectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				EBD59618269D03D000685998 /* LocationsCollectionViewController.swift */,
+				EBD5962B269F6AA800685998 /* ResidentsCollectionViewController.swift */,
+				EBD59640269FC2FE00685998 /* ResidentDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +240,9 @@
 				EBD5961F269DEE3B00685998 /* Layout */,
 				EBD5961D269D077000685998 /* LocationsCollectionView.swift */,
 				EBD59627269DF00500685998 /* LocationsCollectionViewCell.swift */,
+				EBD5962F269F6DC700685998 /* ResidentCollectionViewCell.swift */,
+				EBD5963A269F7FD300685998 /* ResidentsCollectionView.swift */,
+				EBD59642269FC37500685998 /* ResidentDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				EBD59620269DEE8E00685998 /* LocationsCollectionViewFlowLayout.swift */,
+				EBD5963C269F806500685998 /* ResidentsCollectionViewFlowLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -232,8 +262,19 @@
 				EBD59629269DF08600685998 /* UIColor+Palette.swift */,
 				EBD59624269DEF7100685998 /* CGFloat+FlowLayout.swift */,
 				EBD59623269DEF7100685998 /* Int+FlowLayout.swift */,
+				EBD59631269F6E8C00685998 /* UIImage+ImageCache.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EBD59633269F6EC000685998 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBD59635269F6ECE00685998 /* ImageCache.swift */,
+				EBD59634269F6ECE00685998 /* ImageCacheTypeProtocol.swift */,
+				EBD59636269F6ECE00685998 /* ImageLoader.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,19 +407,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD59637269F6ECE00685998 /* ImageCacheTypeProtocol.swift in Sources */,
 				EBD59628269DF00500685998 /* LocationsCollectionViewCell.swift in Sources */,
 				EBD5962A269DF08600685998 /* UIColor+Palette.swift in Sources */,
 				EBD5960B269CEAE800685998 /* ResidentViewModel.swift in Sources */,
 				EBD59621269DEE8E00685998 /* LocationsCollectionViewFlowLayout.swift in Sources */,
 				EBD595D1269CDB8500685998 /* ViewController.swift in Sources */,
 				EBD5961E269D077000685998 /* LocationsCollectionView.swift in Sources */,
+				EBD59632269F6E8C00685998 /* UIImage+ImageCache.swift in Sources */,
+				EBD5963D269F806500685998 /* ResidentsCollectionViewFlowLayout.swift in Sources */,
+				EBD5962E269F6B6F00685998 /* ResidentsCollectionViewModel.swift in Sources */,
 				EBD59626269DEF7100685998 /* CGFloat+FlowLayout.swift in Sources */,
 				EBD59601269CE16F00685998 /* Result.swift in Sources */,
 				EBD595CD269CDB8500685998 /* AppDelegate.swift in Sources */,
 				EBD59605269CE5DA00685998 /* Resident.swift in Sources */,
 				EBD595FE269CDCF500685998 /* DataSource.swift in Sources */,
+				EBD5963B269F7FD300685998 /* ResidentsCollectionView.swift in Sources */,
+				EBD5962C269F6AA900685998 /* ResidentsCollectionViewController.swift in Sources */,
 				EBD59619269D03D000685998 /* LocationsCollectionViewController.swift in Sources */,
+				EBD59630269F6DC700685998 /* ResidentCollectionViewCell.swift in Sources */,
+				EBD59639269F6ECE00685998 /* ImageLoader.swift in Sources */,
+				EBD59643269FC37500685998 /* ResidentDetailsView.swift in Sources */,
 				EBD59615269CFD5100685998 /* DataSource+Generics.swift in Sources */,
+				EBD59641269FC2FE00685998 /* ResidentDetailsViewController.swift in Sources */,
+				EBD59638269F6ECE00685998 /* ImageCache.swift in Sources */,
 				EBD59603269CE3E600685998 /* Location.swift in Sources */,
 				EBD59625269DEF7100685998 /* Int+FlowLayout.swift in Sources */,
 				EBD5961B269D05F300685998 /* LocationsCollectionViewModel.swift in Sources */,

@@ -60,29 +60,23 @@ extension LocationsCollectionViewController { // MARK: UICollectionViewDataSourc
             cell.set(from: vm)
             return cell
         } else {
-            print("Problem at dequeueReusableCell for WorkoutListCollectionViewCell")
+            print("Problem at dequeueReusableCell for LocationsCollectionViewCell")
         }
         return collectionView.dequeueReusableCell(withReuseIdentifier: LocationsCollectionViewCell.reuserIdentifier, for: indexPath)
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let exerciseVM = viewModel.dataSourceList[indexPath.row]
-//        let detailVC = WorkoutListExerciseDetailViewController(exerciseVM)
-//        presentDetailViewController(detailVC)
-//
-//    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let locationVM = viewModel.dataSourceList[indexPath.row]
+        let residentsCollectionVM = ResidentsCollectionViewModel(with: locationVM)
+        let residentsCollectionVC = ResidentsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        residentsCollectionVC.viewModel = residentsCollectionVM
+        presentDetailViewController(residentsCollectionVC)
+    }
     
-//    private func presentDetailViewController(_ detailVC: WorkoutListExerciseDetailViewController) {
-//       let nc = UINavigationController(rootViewController: detailVC)
-//       nc.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//       nc.navigationBar.shadowImage = UIImage()
-//       nc.navigationBar.isTranslucent = true
-//       nc.view.backgroundColor = UIColor.clear
-//
-//       self.present(nc, animated: true) {
-//           //do something
-//       }
-//    }
+    private func presentDetailViewController(_ detailVC: ResidentsCollectionViewController) {
+        detailVC.modalPresentationStyle = .fullScreen
+        self.show(detailVC, sender: nil)
+    }
 }
 
 

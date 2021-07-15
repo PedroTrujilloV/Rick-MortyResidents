@@ -1,26 +1,27 @@
 //
-//  LocationsCollectionViewCell.swift
+//  ResidentCollectionViewCell.swift
 //  Rick&MortyResidents
 //
-//  Created by Pedro Enrique Trujillo Vargas on 7/13/21.
+//  Created by Pedro Enrique Trujillo Vargas on 7/14/21.
 //
+
 
 import Foundation
 import UIKit
 import Combine
 
-class LocationsCollectionViewCell: UICollectionViewCell {
-    static let reuserIdentifier: String = "LocationsCollectionViewCell"
+class ResidentCollectionViewCell: UICollectionViewCell {
+    static let reuserIdentifier: String = "ResidentCollectionViewCell"
     private var cancellables: Array<AnyCancellable> = []
     private static let processingQueue = DispatchQueue(label: "processingQueue")
     private let heightProportion:CGFloat = 0.65
-    private let defaultImage = UIImage(systemName: "mappin.circle")
+    private let defaultImage = UIImage(named: "default")
     private let likeStateImageView = UIImageView(image: UIImage(systemName: "heart.fill") )
     private let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     private let stackView:UIStackView = {
         let stackView = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.horizontal
+        stackView.axis  = NSLayoutConstraint.Axis.vertical
         stackView.distribution  = .fill
         stackView.alignment = UIStackView.Alignment.center
         stackView.spacing  = 8.0
@@ -31,9 +32,9 @@ class LocationsCollectionViewCell: UICollectionViewCell {
     private let textStackView:UIStackView = {
         let stackView = UIStackView()
         stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = .equalCentering
+        stackView.distribution  = .fill
         stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 2.0
+        stackView.spacing   = 3.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -45,9 +46,8 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "logo")
+        imageView.image = UIImage(named: "default")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
         return imageView
     }()
     
@@ -55,7 +55,7 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text  = "No name"
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-DemiBold", size: 15)
+        label.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         label.textColor = UIColor.nameTextColor
         label.numberOfLines = 2
         return label
@@ -93,7 +93,6 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         setupImageViewConstraints()
         setupTextViewConstraints()
         setupIcons()
-        self.backgroundColor = .cellBackgroundColor
     }
        
     private func setupStackView(){
@@ -110,14 +109,17 @@ class LocationsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupImageViewConstraints(){
-        thumbnailImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.9).isActive = true
-        thumbnailImageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
+        thumbnailImageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.5).isActive = true
+        thumbnailImageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9).isActive = true
     }
     
     private func setupTextViewConstraints(){
         textStackView.addArrangedSubview(nameLabel)
         textStackView.addArrangedSubview(descriptionLabel)
-        nameLabel.heightAnchor.constraint(equalTo: textStackView.heightAnchor, multiplier: 0.6).isActive = true
+        
+        nameLabel.widthAnchor.constraint(equalTo: textStackView.widthAnchor, multiplier: 0.9).isActive = true
+        descriptionLabel.widthAnchor.constraint(equalTo: textStackView.widthAnchor, multiplier: 0.9).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalTo: textStackView.heightAnchor, multiplier: 0.6).isActive = true
     }
     
     private func setupIcons(){
@@ -126,15 +128,42 @@ class LocationsCollectionViewCell: UICollectionViewCell {
         let yPos:CGFloat = self.frame.size.height - (self.frame.size.height * heightProportion)
         activityIndicator.center = CGPoint(x: self.frame.size.width/2, y: yPos)
         self.addSubview(activityIndicator)
+        self.addSubview(likeStateImageView)
     }
 
         
-    public func set(from viewModel:  LocationViewModel) {
+    public func set(from viewModel:  ResidentViewModel) {
         nameLabel.text = viewModel.name
-        descriptionLabel.text = viewModel.type
-        activityIndicator.stopAnimating()
+        descriptionLabel.text = viewModel.status
+        bindImage(viewModel)
     }
-
+    
+    private func bindImage(_ viewModel: ResidentViewModel) {
+        if let url = viewModel.imageURL {
+            DispatchQueue.main.async { [weak self] in
+                self?.cancellables.append(
+                    ImageLoader.shared.loadImage(from: url)
+                        .handleEvents(receiveSubscription: { [weak self] (subscription) in
+                                DispatchQueue.main.async {
+                                    self?.activityIndicator.startAnimating()
+                                }
+                            }, receiveCompletion: { [weak self] (completion) in
+                                DispatchQueue.main.async {
+                                    self?.activityIndicator.stopAnimating()
+                                    let margin:CGFloat = 10
+                                    self?.thumbnailImageView.image = self?.thumbnailImageView.image?.withInset(UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+                                }
+                            }, receiveCancel: { [weak self]  in
+                                DispatchQueue.main.async {
+                                    self?.activityIndicator.stopAnimating()
+                                }
+                        })
+                        .assign(to: \.image, on: self!.thumbnailImageView )
+                )
+            }
+        }
+    }
+    
     override func prepareForReuse() {
         thumbnailImageView.image = defaultImage
         self.likeStateImageView.isHidden = true

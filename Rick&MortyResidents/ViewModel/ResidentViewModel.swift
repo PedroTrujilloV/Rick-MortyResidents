@@ -21,6 +21,15 @@ class ResidentViewModel: NSObject {
         return model.status
     }
     
+    var imageURLString: String {
+        return model.image
+    }
+    
+    var imageURL: URL? {
+        guard let url = URL(string: imageURLString) else {print("\n ⚠️ ResidentViewModel.imageURLString: There was a problem getting URL from: \(imageURLString)"); return nil}
+        return url
+    }
+        
     init(model:Resident) {
         self.model = model
     }

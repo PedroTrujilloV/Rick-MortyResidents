@@ -36,16 +36,14 @@ class DataSource {
     private var cancellable: AnyCancellable?
     private weak var delegate:DataSourceDelegate?
     private var dataSourceList:Array<LocationViewModel> = []
-    private static var _categories:Dictionary<Int,String> = [:]
-    private static var _equipments:Dictionary<Int,String> = [:]
+    private static var _residents:Dictionary<String,Resident> = [:]
+    private static var _imageDataStore:Dictionary<String,Data> = [:]
 
     
     init(delegate:DataSourceDelegate) {
         guard let url = URL(string: urlString) else {print("\n ⚠️ DataSource.init(): There was a problem getting URL from: \(urlString)"); return}
         load(url: url)
         self.delegate = delegate
-//        DataSource.retrieveCategory(nil)
-//        DataSource.retrieveEquipment(nil)
     }
     
     public func loadNext(){
@@ -93,7 +91,20 @@ class DataSource {
     }
     
     public static func retrieveResident(with urlString:String, completion: @escaping (Resident?)->Void){
-        DataSource.retrieve(with: urlString, completion: completion)
+        guard let resident = DataSource._residents[urlString] else {
+            let completionHandler: (Resident?)->Void = { resident in
+                guard let resident = resident else {
+                    print("\n ⚠️ DataSource.retrieveResident() completionHandler: There was a problem instancing resident ")
+                    completion(nil)
+                    return
+                }
+                DataSource._residents[urlString] = resident
+                completion(resident)
+            }
+            DataSource.retrieve(with: urlString, completion: completionHandler)
+            return
+        }
+        completion(resident)
     }
     
     deinit  {
