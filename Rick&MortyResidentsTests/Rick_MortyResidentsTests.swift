@@ -107,12 +107,32 @@ class Rick_MortyResidentsTests: XCTestCase, DataSourceDelegate {
     func test3DataSourceRetrieveResident(){
         let givenImageStringURL = "https://rickandmortyapi.com/api/character/avatar/38.jpeg"
         let giveResidentURL = "https://rickandmortyapi.com/api/character/38"
-        let givenExpectation = expectation(description: "test3DataSourceRetrieveImageModel expectation")
+        let givenExpectation = expectation(description: "test3DataSourceRetrieveResident expectation")
         //when
         DataSource.retrieveResident(with: giveResidentURL) { resident  in
             let image = resident?.image
             //then
             XCTAssertTrue(givenImageStringURL == image)
+            givenExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    
+    func test4DataSourceRetrieveLocation(){
+        let givenLocationName = "Anatomy Park"
+        let giveLocationURL = "https://rickandmortyapi.com/api/location/5"
+        let givenExpectation = expectation(description: "test4DataSourceRetrieveLocation expectation")
+        //when
+        DataSource.retrieveLocation(with: giveLocationURL) { location  in
+            let name = location?.name
+            //then
+            XCTAssertTrue(givenLocationName == name)
             givenExpectation.fulfill()
         }
         

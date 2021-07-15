@@ -36,6 +36,7 @@ class DataSource {
     private var cancellable: AnyCancellable?
     private weak var delegate:DataSourceDelegate?
     private var dataSourceList:Array<LocationViewModel> = []
+    private static var _locations:Dictionary<String,Location> = [:]
     private static var _residents:Dictionary<String,Resident> = [:]
     private static var _imageDataStore:Dictionary<String,Data> = [:]
 
@@ -85,9 +86,35 @@ class DataSource {
     
     private func processResult(result:Result){
         _currentResult = result
+        self.cacheLocation(result: result)
         let results = result.results.map({LocationViewModel(model: $0)})
         self.dataSourceList.append(contentsOf: results)
         self.delegate?.dataSourceDidLoad(dataSource: self.dataSourceList)
+    }
+    
+    private func cacheLocation(result:Result){
+        DataSource._locations = result.results.reduce(Dictionary<String,Location>()) { (dict,location) -> Dictionary<String,Location> in
+            var dict = dict
+            dict[location.url] = location
+            return dict
+        }
+    }
+    
+    public static func retrieveLocation(with urlString:String, completion: @escaping (Location?)->Void){
+        guard let location = DataSource._locations[urlString] else {
+            let completionHandler: (Location?)->Void = { location in
+                guard let location = location else {
+                    print("\n ⚠️ DataSource.retrieveLocation() completionHandler: There was a problem instancing location ")
+                    completion(nil)
+                    return
+                }
+                DataSource._locations[urlString] = location
+                completion(location)
+            }
+            DataSource.retrieve(with: urlString, completion: completionHandler)
+            return
+        }
+        completion(location)
     }
     
     public static func retrieveResident(with urlString:String, completion: @escaping (Resident?)->Void){

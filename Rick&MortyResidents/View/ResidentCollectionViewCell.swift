@@ -143,7 +143,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         
     public func set(from viewModel:  ResidentViewModel) {
         nameLabel.text = viewModel.name
-        descriptionLabel.text = viewModel.status
+        descriptionLabel.text = viewModel.statusWithEmoji
         bindImage(viewModel)
     }
     
