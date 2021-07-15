@@ -1,8 +1,8 @@
 # Rick-MortyResidents
 
-![pic1](Add Screnshot.png)
-![pic1](Add Screnshot.png)
-
+![pic1](ScreenShot1.png)
+![pic1](ScreenShot2.png)
+![pic1](ScreenShot3.png)
 Rick&amp;MortyResidents is a test app that presents the residents information by location. This app uses https://rickandmortyapi.com as data source
 
 ### Technologies and APIs used:
@@ -21,6 +21,7 @@ Rick&amp;MortyResidents is a test app that presents the residents information by
 ·     Callbacks 
 ·     Dark mode dynamic colors 
 ·     Unit Testing
+·     Combine Framework
 ·     etc.
 
 ### Instructions for running the app:
@@ -32,7 +33,8 @@ Necessary to have Xcode installed before. Download the repository, once download
 ·     UI testing
 ·     Packages for common components
 ·     Test and improve the image caching 
-
+·     Play more with the https://jsonplaceholder.typicode.com API and testing it
+·     Build the React Native Version of this App.
 
 
 ## Project
