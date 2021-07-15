@@ -3,6 +3,8 @@
 ![pic1](ScreenShot1.png)
 ![pic1](ScreenShot2.png)
 ![pic1](ScreenShot3.png)
+
+
 Rick&amp;MortyResidents is a test app that presents the residents information by location. This app uses https://rickandmortyapi.com as data source
 
 ### Technologies and APIs used:
